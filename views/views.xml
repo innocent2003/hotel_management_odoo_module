@@ -1,0 +1,162 @@
+<odoo>
+    <data>
+        <!-- Hotel Management Views -->
+        <!-- list view for Hotel Management -->
+ <record id="view_hotel_management_list" model="ir.ui.view">
+    <field name="name">hotel.management.list</field>
+    <field name="model">hotel.management</field>
+    <field name="arch" type="xml">
+        <list>
+            <field name="name"/>
+            <field name="address"/>
+            <field name="floor_count"/>
+            <field name="room_count"/>
+        </list>
+    </field>
+</record>
+
+
+        <!-- Form view for Hotel Management -->
+        <record id="view_hotel_management_form" model="ir.ui.view">
+            <field name="name">hotel.management.form</field>
+            <field name="model">hotel.management</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="address"/>
+                            <field name="floor_count"/>
+                            <field name="room_count" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="room_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="bed_type"/>
+                                    <field name="price"/>
+                                </list>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Room Views -->
+        <!-- list view for Room -->
+        <record id="view_hotel_room_list" model="ir.ui.view">
+            <field name="name">hotel.room.list</field>
+            <field name="model">hotel.room</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="bed_type"/>
+                    <field name="price"/>
+                    <field name="state"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form view for Room -->
+        <record id="view_hotel_room_form" model="ir.ui.view">
+            <field name="name">hotel.room.form</field>
+            <field name="model">hotel.room</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="hotel_id"/>
+                            <field name="bed_type"/>
+                            <field name="price"/>
+                            <field name="feature_ids"/>
+                            <field name="state"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Reservation Views -->
+        <!-- list view for Reservation -->
+        <record id="view_hotel_reservation_list" model="ir.ui.view">
+            <field name="name">hotel.reservation.list</field>
+            <field name="model">hotel.reservation</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="customer_name"/>
+                    <field name="reservation_date"/>
+                    <field name="check_in_date"/>
+                    <field name="check_out_date"/>
+                    <field name="state"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form view for Reservation -->
+        <record id="view_hotel_reservation_form" model="ir.ui.view">
+            <field name="name">hotel.reservation.form</field>
+            <field name="model">hotel.reservation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="customer_name"/>
+                            <field name="reservation_date"/>
+                            <field name="hotel_id"/>
+                            <field name="room_id"/>
+                            <field name="check_in_date"/>
+                            <field name="check_out_date"/>
+                            <field name="state"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Actions -->
+        <!-- Action for Hotel Management -->
+        <record id="action_hotel_management" model="ir.actions.act_window">
+            <field name="name">Hotel Management</field>
+            <field name="res_model">hotel.management</field>
+            <field name="view_mode">list,form</field>
+            <field name="target">current</field>
+        </record>
+
+        <!-- Action for Rooms -->
+        <record id="action_hotel_room" model="ir.actions.act_window">
+            <field name="name">Room Management</field>
+            <field name="res_model">hotel.room</field>
+            <field name="view_mode">list,form</field>
+            <field name="target">current</field>
+        </record>
+
+        <!-- Action for Reservations -->
+        <record id="action_hotel_reservation" model="ir.actions.act_window">
+            <field name="name">Room Reservations</field>
+            <field name="res_model">hotel.reservation</field>
+            <field name="view_mode">list,form</field>
+            <field name="target">current</field>
+        </record>
+
+        <!-- Menu Items -->
+        <!-- Menu for Hotel Management -->
+
+        <menuitem id="hotel_menu_root" name="Tuan" />
+
+        <menuitem name="Hotel Management" id="menu_hotel_management" parent="hotel_menu_root"
+                  action="action_hotel_management"/>
+
+        <!-- Menu for Rooms -->
+        <menuitem name="Rooms" id="menu_hotel_rooms" parent="hotel_menu_root"
+                  action="action_hotel_room"/>
+
+        <!-- Menu for Reservations -->
+        <menuitem name="Reservations" id="menu_hotel_reservations" parent="hotel_menu_root"
+                  action="action_hotel_reservation"/>
+
+    </data>
+</odoo>

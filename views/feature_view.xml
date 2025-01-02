@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+        <!-- Tree view for Room Features -->
+        <record id="view_hotel_room_feature_tree" model="ir.ui.view">
+            <field name="name">hotel.room.feature.tree</field>
+            <field name="model">hotel.room.feature</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view for Room Features -->
+        <record id="view_hotel_room_feature_form" model="ir.ui.view">
+            <field name="name">hotel.room.feature.form</field>
+            <field name="model">hotel.room.feature</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action for Room Features -->
+        <record id="action_hotel_room_feature" model="ir.actions.act_window">
+            <field name="name">Room Features</field>
+            <field name="res_model">hotel.room.feature</field>
+            <field name="view_mode">tree,form</field>
+            <field name="target">current</field>
+        </record>
+
+        <!-- Menu item for Room Features -->
+        <menuitem name="Room Features" id="menu_hotel_room_feature" parent="hotel.menu_root"
+                  action="action_hotel_room_feature"/>
+
+    </data>
+</odoo>

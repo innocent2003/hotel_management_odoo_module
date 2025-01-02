@@ -1,0 +1,26 @@
+# reservation.py
+from odoo import models, fields, api
+from datetime import datetime
+
+class Reservation(models.Model):
+    _name = 'hotel.reservation'
+    _description = 'Room Reservation'
+
+    name = fields.Char('Mã đặt phòng', required=True)
+    customer_name = fields.Char('Tên người đặt', required=True)
+    reservation_date = fields.Date('Ngày đặt', default=fields.Date.context_today)
+    hotel_id = fields.Many2one('hotel.management', string='Khách sạn', required=True)
+    room_id = fields.Many2one('hotel.room', string='Mã phòng', domain="[('hotel_id', '=', hotel_id), ('state', '=', 'available')]", required=True)
+    check_in_date = fields.Date('Ngày nhận phòng', required=True)
+    check_out_date = fields.Date('Ngày trả phòng', required=True)
+    state = fields.Selection([('new', 'Mới'), ('booked', 'Đã đặt')], string='Trạng thái đặt', default='new')
+
+    @api.constrains('check_in_date', 'check_out_date')
+    def _check_dates(self):
+        for record in self:
+            if record.check_in_date > record.check_out_date:
+                raise ValidationError('Ngày nhận phòng không được lớn hơn ngày trả phòng.')
+
+    def confirm_reservation(self):
+        self.state = 'booked'
+        self.room_id.state = 'booked'
