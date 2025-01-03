@@ -1,0 +1,20 @@
+<odoo>
+    <record id="view_hotel_form_inherit" model="ir.ui.view">
+        <field name="name">hotel.form.inherit</field>
+        <field name="model">hotel.management</field>
+        <field name="inherit_id" ref="admin_hotel.view_hotel_management_form"/>
+        <field name="arch" type="xml">
+            <!-- Chèn vào trong tab "Các phòng" -->
+            <xpath expr="//notebook/page[1]" position="after">
+
+
+                <page string="Thông tin đặt phòng">
+                    <group>
+<!--                        <field name="booking_history_ids" widget="one2many_list"/>-->
+                        <field name="address"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

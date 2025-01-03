@@ -1,0 +1,29 @@
+<odoo>
+   <record id="view_hotel_room_form_inherit" model="ir.ui.view">
+            <field name="name">hotel.room.form.inherit</field>
+            <field name="model">hotel.room</field>
+            <field name="inherit_id" ref="hotel_management.view_hotel_room_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <group>
+                        <field name="room_size"/>
+                        <field name="max_occupancy"/>
+                        <field name="smoking_allowed"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+    <record id="view_hotel_room_list_inherit" model="ir.ui.view">
+        <field name="name">hotel.room.list.inherit</field>
+        <field name="model">hotel.room</field>
+        <field name="inherit_id" ref="hotel_management.view_hotel_room_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <field name="room_size"/>
+                <field name="max_occupancy"/>
+                <field name="smoking_allowed"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

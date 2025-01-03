@@ -1,0 +1,29 @@
+<odoo>
+    <record id="view_booking_history_list" model="ir.ui.view">
+        <field name="name">hotel.booking.history.list</field>
+        <field name="model">hotel.booking.history</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="guest_name"/>
+                <field name="hotel_id"/>
+                <field name="room_id"/>
+                <field name="check_in_date"/>
+                <field name="check_out_date"/>
+            </list>
+        </field>
+    </record>
+
+
+
+        <!-- Action for Room Features -->
+        <record id="hotel_booking_history" model="ir.actions.act_window">
+            <field name="name">Booking History</field>
+            <field name="res_model">hotel.booking.history</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Menu item for Room Features -->
+        <menuitem name="Booking History" id="menu_hotel_booking_history" parent="admin_hotel.hotel_menu_root"
+                  action="hotel_booking_history"/>
+
+</odoo>

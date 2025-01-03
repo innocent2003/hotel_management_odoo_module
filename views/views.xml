@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="inherit_hotel.list">
+      <field name="name">inherit_hotel list</field>
+      <field name="model">inherit_hotel.inherit_hotel</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </list>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="inherit_hotel.action_window">
+      <field name="name">inherit_hotel window</field>
+      <field name="res_model">inherit_hotel.inherit_hotel</field>
+      <field name="view_mode">list,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="inherit_hotel.action_server">
+      <field name="name">inherit_hotel server</field>
+      <field name="model_id" ref="model_inherit_hotel_inherit_hotel"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "list,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+<!--    <menuitem name="inherit_hotel" id="hotelMenu.menu_root"/>-->
+
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="inherit_hotel.menu_1" parent="inherit_hotel.menu_root"/>
+    <menuitem name="Menu 2" id="inherit_hotel.menu_2" parent="inherit_hotel.menu_root"/>
+-->
+    <!-- actions -->
+
+<!--    <menuitem name="List" id="inherit_hotel.menu_1_list" parent="inherit_hotel.menu_1"-->
+<!--              action="inherit_hotel.action_window"/>-->
+<!--    <menuitem name="Server to list" id="inherit_hotel" parent="inherit_hotel.menu_2"-->
+<!--              action="inherit_hotel.action_server"/>-->
+
+  </data>
+</odoo>
