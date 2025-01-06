@@ -1,0 +1,6 @@
+<odoo>
+    <menuitem id="menu_admin_role" name="Admin Role"/>
+    <menuitem id="menu_hotels" name="Hotels" parent="menu_admin_role" action="action_hotels"/>
+    <menuitem id="menu_rooms" name="Rooms" parent="menu_admin_role" action="action_rooms"/>
+    <menuitem id="menu_bookings" name="Bookings" parent="menu_admin_role" action="action_bookings"/>
+</odoo>

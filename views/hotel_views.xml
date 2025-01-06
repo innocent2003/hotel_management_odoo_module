@@ -1,0 +1,33 @@
+<odoo>
+    <record id="view_hotel_list" model="ir.ui.view">
+        <field name="name">hotel.list</field>
+        <field name="model">hotel</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="description"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_hotel_form" model="ir.ui.view">
+        <field name="name">hotel.form</field>
+        <field name="model">hotel</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hotels" model="ir.actions.act_window">
+        <field name="name">Hotels</field>
+        <field name="res_model">hotel</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

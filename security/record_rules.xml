@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+        <!-- Quy tắc cho nhân viên -->
+        <record id="rule_booking_employee" model="ir.rule">
+            <field name="name">Employee Booking Rule</field>
+            <field name="model_id" ref="model_booking"/>
+            <field name="groups" eval="[(4, ref('admin_role.group_employee'))]"/>
+            <field name="domain_force">[('create_uid', '=', user.id)]</field>
+        </record>
+
+        <!-- Quy tắc cho quản lý -->
+        <record id="rule_booking_manager" model="ir.rule">
+            <field name="name">Manager Booking Rule</field>
+            <field name="model_id" ref="model_booking"/>
+            <field name="groups" eval="[(4, ref('admin_role.group_manager'))]"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+    </data>
+</odoo>

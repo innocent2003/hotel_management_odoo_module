@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="admin_role.list">
+      <field name="name">adminRole list</field>
+      <field name="model">admin_role.admin_role</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </list>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="admin_role.action_window">
+      <field name="name">adminRole window</field>
+      <field name="res_model">admin_role.admin_role</field>
+      <field name="view_mode">list,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="admin_role.action_server">
+      <field name="name">adminRole server</field>
+      <field name="model_id" ref="model_admin_role_admin_role"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "list,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="adminRole" id="admin_role.menu_root"/>
+
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="admin_role.menu_1" parent="admin_role.menu_root"/>
+    <menuitem name="Menu 2" id="admin_role.menu_2" parent="admin_role.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="admin_role.menu_1_list" parent="admin_role.menu_1"
+              action="admin_role.action_window"/>
+    <menuitem name="Server to list" id="admin_role" parent="admin_role.menu_2"
+              action="admin_role.action_server"/>
+-->
+  </data>
+</odoo>

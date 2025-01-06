@@ -1,0 +1,16 @@
+<odoo>
+    <data noupdate="1">
+        <!-- Nhóm quyền: Nhân viên -->
+        <record id="group_employee" model="res.groups">
+            <field name="name">Employee</field>
+            <field name="category_id" ref="base.module_category_administration"/>
+        </record>
+
+        <!-- Nhóm quyền: Quản lý -->
+        <record id="group_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="base.module_category_administration"/>
+            <field name="implied_ids" eval="[(4, ref('admin_role.group_employee'))]"/>
+        </record>
+    </data>
+</odoo>

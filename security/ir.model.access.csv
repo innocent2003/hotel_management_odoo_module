@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hotel_employee,access_hotel_employee,model_hotel,admin_role.group_employee,1,0,0,0
+access_hotel_manager,access_hotel_manager,model_hotel,admin_role.group_manager,1,1,1,1
+access_room_employee,access_room_employee,model_room,admin_role.group_employee,1,0,0,0
+access_room_manager,access_room_manager,model_room,admin_role.group_manager,1,1,1,1
+access_booking_employee,access_booking_employee,model_booking,admin_role.group_employee,1,1,1,0
+access_booking_manager,access_booking_manager,model_booking,admin_role.group_manager,1,1,1,1
