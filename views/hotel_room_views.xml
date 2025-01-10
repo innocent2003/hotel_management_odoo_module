@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_session7_hotel_room_form" model="ir.ui.view">
+        <field name="name">session7.hotel.room.form</field>
+        <field name="model">session7.hotel.room</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="price"/>
+                        <field name="is_available"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- list View -->
+    <record id="view_session7_hotel_room_list" model="ir.ui.view">
+        <field name="name">session7.hotel.room.list</field>
+        <field name="model">session7.hotel.room</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="price"/>
+                <field name="is_available"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_session7_hotel_rooms" model="ir.actions.act_window">
+        <field name="name">Hotel Rooms</field>
+        <field name="res_model">session7.hotel.room</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_session7_hotel_management" name="Session7 Hotel Management"/>
+    <menuitem id="menu_session7_hotel_rooms" parent="menu_session7_hotel_management" name="Rooms" action="action_session7_hotel_rooms"/>
+</odoo>

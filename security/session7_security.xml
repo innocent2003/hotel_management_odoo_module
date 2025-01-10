@@ -1,0 +1,23 @@
+<odoo>
+    <record id="group_session7_manager" model="res.groups">
+        <field name="name">Session7 Manager</field>
+    </record>
+
+    <record id="group_session7_staff" model="res.groups">
+        <field name="name">Session7 Staff</field>
+    </record>
+
+    <record id="session7_room_rule_manager" model="ir.rule">
+        <field name="name">Hotel Room Rule for Manager</field>
+        <field name="model_id" ref="model_session7_hotel_room"/>
+        <field name="groups" eval="[(4, ref('session7.group_session7_manager'))]"/>
+        <field name="domain_force">[]</field>
+    </record>
+
+    <record id="session7_room_rule_staff" model="ir.rule">
+        <field name="name">Hotel Room Rule for Staff</field>
+        <field name="model_id" ref="model_session7_hotel_room"/>
+        <field name="groups" eval="[(4, ref('session7.group_session7_staff'))]"/>
+        <field name="domain_force">[('is_available', '=', True)]</field>
+    </record>
+</odoo>

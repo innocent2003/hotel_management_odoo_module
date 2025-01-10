@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_session7_manager,Session7 Manager,model_session7_hotel_room,session7.group_session7_manager,1,1,1,1
+access_session7_staff,Session7 Staff,model_session7_hotel_room,session7.group_session7_staff,1,0,0,0
