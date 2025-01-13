@@ -22,8 +22,18 @@ Long description of module's purpose
 
     # always loaded
     'data': [
+        # 'security/groups.xml',
+        # 'security/hotel_security.xml',
+        # 'security/record_rules.xml',
         'security/ir.model.access.csv',
-        'views/views.xml',
+        # 'views/views.xml',
+        'views/menu_views.xml',
+    'views/hotel_management_views.xml',
+    'views/hotel_room_views.xml',
+    'views/hotel_reservation_views.xml',
+    'views/hotel_room_feature_views.xml',
+    'views/booked_list_views.xml',
+    'views/approve_reservation_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <!-- Actions -->
+        <record id="action_hotel_management" model="ir.actions.act_window">
+            <field name="name">Hotel Management</field>
+            <field name="res_model">hotel.management</field>
+            <field name="view_mode">list,form</field>
+            <field name="target">current</field>
+        </record>
+
+        <record id="action_hotel_room" model="ir.actions.act_window">
+            <field name="name">Room Management</field>
+            <field name="res_model">hotel.room</field>
+            <field name="view_mode">list,form</field>
+            <field name="target">current</field>
+        </record>
+
+        <record id="action_hotel_reservation" model="ir.actions.act_window">
+            <field name="name">Room Reservations</field>
+            <field name="res_model">hotel.reservation</field>
+            <field name="view_mode">list,form</field>
+            <field name="target">current</field>
+        </record>
+
+        <record id="action_hotel_reservation_booked" model="ir.actions.act_window">
+            <field name="name">Booked Reservations</field>
+            <field name="res_model">hotel.reservation</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('state', '=', 'booked')]</field>
+            <field name="target">current</field>
+        </record>
+
+        <!-- Menus -->
+        <menuitem id="hotel_menu_root" name="Hotel Management System" sequence="1"/>
+
+        <menuitem name="Hotel Management" id="menu_hotel_management" parent="hotel_menu_root"
+                  action="action_hotel_management" sequence="10"/>
+
+        <menuitem name="Rooms" id="menu_hotel_rooms" parent="hotel_menu_root"
+                  action="action_hotel_room" sequence="20"/>
+
+        <menuitem name="Reservations" id="menu_hotel_reservations" parent="hotel_menu_root"
+                  action="action_hotel_reservation" sequence="30"/>
+
+        <menuitem name="Booked Reservations" id="menu_hotel_reservations_booked" parent="hotel_menu_root"
+                  action="action_hotel_reservation_booked" sequence="40"/>
+
+         <menuitem id="hotel_menu_root" name="Hotel Management System" sequence="1"/>
+
+
+    </data>
+</odoo>

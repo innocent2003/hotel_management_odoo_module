@@ -1,20 +1,19 @@
 <odoo>
     <data>
         <!-- Hotel Management Views -->
-        <!-- list view for Hotel Management -->
- <record id="view_hotel_management_list" model="ir.ui.view">
-    <field name="name">hotel.management.list</field>
-    <field name="model">hotel.management</field>
-    <field name="arch" type="xml">
-        <list>
-            <field name="name"/>
-            <field name="address"/>
-            <field name="floor_count"/>
-            <field name="room_count"/>
-        </list>
-    </field>
-</record>
-
+        <!-- List view for Hotel Management -->
+        <record id="view_hotel_management_list" model="ir.ui.view">
+            <field name="name">hotel.management.list</field>
+            <field name="model">hotel.management</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="floors"/>
+                    <field name="room_count"/>
+                </list>
+            </field>
+        </record>
 
         <!-- Form view for Hotel Management -->
         <record id="view_hotel_management_form" model="ir.ui.view">
@@ -26,17 +25,26 @@
                         <group>
                             <field name="name"/>
                             <field name="address"/>
-                            <field name="floor_count"/>
+                            <field name="floors"/>
                             <field name="room_count" readonly="1"/>
                         </group>
                         <group>
-                            <field name="room_ids">
+                            <notebook>
+                                <page string="Các phòng">
+                                 <field name="room_ids">
                                 <list>
                                     <field name="name"/>
                                     <field name="bed_type"/>
                                     <field name="price"/>
                                 </list>
                             </field>
+                                </page>
+
+
+                            </notebook>
+
+
+
                         </group>
                     </sheet>
                 </form>
@@ -44,7 +52,7 @@
         </record>
 
         <!-- Room Views -->
-        <!-- list view for Room -->
+        <!-- List view for Room -->
         <record id="view_hotel_room_list" model="ir.ui.view">
             <field name="name">hotel.room.list</field>
             <field name="model">hotel.room</field>
@@ -79,7 +87,7 @@
         </record>
 
         <!-- Reservation Views -->
-        <!-- list view for Reservation -->
+        <!-- List view for Reservation -->
         <record id="view_hotel_reservation_list" model="ir.ui.view">
             <field name="name">hotel.reservation.list</field>
             <field name="model">hotel.reservation</field>
@@ -143,20 +151,19 @@
         </record>
 
         <!-- Menu Items -->
-        <!-- Menu for Hotel Management -->
+        <!-- Root Menu -->
+        <menuitem id="hotel_menu_root" name="Hotel Management System" sequence="1"/>
 
-        <menuitem id="hotel_menu_root" name="Tuan" />
-
+        <!-- Submenu for Hotel Management -->
         <menuitem name="Hotel Management" id="menu_hotel_management" parent="hotel_menu_root"
-                  action="action_hotel_management"/>
+                  action="action_hotel_management" sequence="10"/>
 
-        <!-- Menu for Rooms -->
+        <!-- Submenu for Rooms -->
         <menuitem name="Rooms" id="menu_hotel_rooms" parent="hotel_menu_root"
-                  action="action_hotel_room"/>
+                  action="action_hotel_room" sequence="20"/>
 
-        <!-- Menu for Reservations -->
+        <!-- Submenu for Reservations -->
         <menuitem name="Reservations" id="menu_hotel_reservations" parent="hotel_menu_root"
-                  action="action_hotel_reservation"/>
-
+                  action="action_hotel_reservation" sequence="30"/>
     </data>
 </odoo>

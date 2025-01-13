@@ -1,17 +1,17 @@
 <odoo>
     <data>
-        <!-- Tree view for Room Features -->
-        <record id="view_hotel_room_feature_tree" model="ir.ui.view">
-            <field name="name">hotel.room.feature.tree</field>
+        <!-- List view for Room Feature -->
+        <record id="view_hotel_room_feature_list" model="ir.ui.view">
+            <field name="name">hotel.room.feature.list</field>
             <field name="model">hotel.room.feature</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="name"/>
-                </tree>
+                </list>
             </field>
         </record>
 
-        <!-- Form view for Room Features -->
+        <!-- Form view for Room Feature -->
         <record id="view_hotel_room_feature_form" model="ir.ui.view">
             <field name="name">hotel.room.feature.form</field>
             <field name="model">hotel.room.feature</field>
@@ -26,17 +26,16 @@
             </field>
         </record>
 
-        <!-- Action for Room Features -->
+        <!-- Action for Room Feature -->
         <record id="action_hotel_room_feature" model="ir.actions.act_window">
             <field name="name">Room Features</field>
             <field name="res_model">hotel.room.feature</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
             <field name="target">current</field>
         </record>
 
-        <!-- Menu item for Room Features -->
-        <menuitem name="Room Features" id="menu_hotel_room_feature" parent="hotel.menu_root"
-                  action="action_hotel_room_feature"/>
-
+        <!-- Menu Item for Room Feature -->
+        <menuitem name="Room Features" id="menu_hotel_room_features" parent="hotel_menu_root"
+                  action="action_hotel_room_feature" sequence="40"/>
     </data>
 </odoo>

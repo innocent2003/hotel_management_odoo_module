@@ -1,0 +1,45 @@
+<odoo>
+    <data>
+        <!-- Security Groups -->
+        <record id="group_hotel_employee" model="res.groups">
+            <field name="name">Nhân viên</field>
+        </record>
+
+        <record id="group_hotel_manager" model="res.groups">
+            <field name="name">Quản lý</field>
+        </record>
+
+        <record id="group_hotel_admin" model="res.groups">
+            <field name="name">Quản trị viên</field>
+        </record>
+
+        <!-- Record Rules -->
+        <!-- Nhân viên chỉ thấy khách sạn của mình -->
+        <record id="hotel_management_employee_rule" model="ir.rule">
+            <field name="name">Nhân viên chỉ thấy khách sạn của mình</field>
+            <field name="model_id" ref="model_hotel_management"/>
+            <field name="groups" eval="[(4, ref('group_hotel_employee'))]"/>
+            <!-- Assuming 'user_ids' is the field linking hotel.management with res.users -->
+            <field name="domain_force">[('user_ids', 'in', [user.id])]</field>
+        </record>
+
+        <!-- Quản lý chỉ thấy khách sạn mình quản lý -->
+        <record id="hotel_management_manager_rule" model="ir.rule">
+            <field name="name">Quản lý chỉ thấy khách sạn mình quản lý</field>
+            <field name="model_id" ref="model_hotel_management"/>
+            <field name="groups" eval="[(4, ref('group_hotel_manager'))]"/>
+            <!-- Assuming the manager field is linked to the user directly -->
+            <field name="domain_force">[('manager_id', '=', user.id)]</field>
+        </record>
+
+        <!-- Quản trị viên có quyền xem tất cả khách sạn -->
+        <record id="hotel_management_admin_rule" model="ir.rule">
+            <field name="name">Quản trị viên có quyền xem tất cả khách sạn</field>
+            <field name="model_id" ref="model_hotel_management"/>
+            <field name="groups" eval="[(4, ref('group_hotel_admin'))]"/>
+            <field name="domain_force">[]</field>
+        </record>
+
+        <!-- Similar record rules for Room and Reservation models can be added here -->
+    </data>
+</odoo>

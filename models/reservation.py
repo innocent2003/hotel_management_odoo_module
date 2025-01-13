@@ -1,5 +1,6 @@
 # reservation.py
 from odoo import models, fields, api
+from odoo.exceptions import UserError
 from datetime import datetime
 
 class Reservation(models.Model):
@@ -21,6 +22,11 @@ class Reservation(models.Model):
             if record.check_in_date > record.check_out_date:
                 raise ValidationError('Ngày nhận phòng không được lớn hơn ngày trả phòng.')
 
-    def confirm_reservation(self):
-        self.state = 'booked'
-        self.room_id.state = 'booked'
+    def action_approve(self):
+        if not self:
+            raise UserError('No records selected for approval.')
+
+        for record in self:
+            if record.state != 'new':
+                raise UserError(f'Record {record.name} is not in "New" state and cannot be approved.')
+            record.write({'state': 'booked'})

@@ -1,0 +1,62 @@
+<odoo>
+    <!-- Record Rules for Hotel -->
+    <record id="hotel_employee_rule" model="ir.rule">
+        <field name="name">Employee Hotel Access</field>
+        <field name="model_id" ref="model_hotel_management"/>
+        <field name="domain_force">[('id', 'in', user.employee_ids.mapped('hotel_id.id'))]</field>
+        <field name="groups" eval="[(4, ref('admin_hotel.group_employee'))]"/>
+    </record>
+    <record id="hotel_manager_rule" model="ir.rule">
+        <field name="name">Manager Hotel Access</field>
+        <field name="model_id" ref="model_hotel_management"/>
+        <field name="domain_force">[('manager_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('admin_hotel.group_manager'))]"/>
+    </record>
+    <record id="hotel_admin_rule" model="ir.rule">
+        <field name="name">Admin Hotel Access</field>
+        <field name="model_id" ref="model_hotel_management"/>
+        <field name="domain_force">[]</field>
+        <field name="groups" eval="[(4, ref('admin_hotel.group_admin'))]"/>
+    </record>
+
+    <!-- Record Rules for Room -->
+    <record id="room_employee_rule" model="ir.rule">
+        <field name="name">Employee Room Access</field>
+        <field name="model_id" ref="model_hotel_room"/>
+        <field name="domain_force">[('hotel_id.id', 'in', user.employee_ids.mapped('hotel_id.id'))]</field>
+        <field name="groups" eval="[(4, ref('admin_hotel.group_employee'))]"/>
+    </record>
+    <record id="room_manager_rule" model="ir.rule">
+        <field name="name">Manager Room Access</field>
+        <field name="model_id" ref="model_hotel_room"/>
+        <field name="domain_force">[('hotel_id.manager_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('admin_hotel.group_manager'))]"/>
+    </record>
+    <record id="room_admin_rule" model="ir.rule">
+        <field name="name">Admin Room Access</field>
+        <field name="model_id" ref="model_hotel_room"/>
+        <field name="domain_force">[]</field>
+        <field name="groups" eval="[(4, ref('admin_hotel.group_admin'))]"/>
+    </record>
+
+    <!-- Record Rules for Reservation -->
+    <record id="reservation_employee_rule" model="ir.rule">
+        <field name="name">Employee Reservation Access</field>
+        <field name="model_id" ref="model_hotel_reservation"/>
+        <field name="domain_force">[('create_uid', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('admin_hotel.group_employee'))]"/>
+    </record>
+    <record id="reservation_manager_rule" model="ir.rule">
+        <field name="name">Manager Reservation Access</field>
+        <field name="model_id" ref="model_hotel_reservation"/>
+        <field name="domain_force">[('hotel_id.manager_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('admin_hotel.group_manager'))]"/>
+    </record>
+    <record id="reservation_admin_rule" model="ir.rule">
+        <field name="name">Admin Reservation Access</field
+        >
+        <field name="model_id" ref="model_hotel_reservation"/>
+        <field name="domain_force">[]</field>
+        <field name="groups" eval="[(4, ref('admin_hotel.group_admin'))]"/>
+    </record>
+</odoo>

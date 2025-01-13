@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+        <!-- List view for Hotel Management -->
+        <record id="view_hotel_management_list" model="ir.ui.view">
+            <field name="name">hotel.management.list</field>
+            <field name="model">hotel.management</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="address"/>
+                    <field name="floors"/>
+                    <field name="room_count"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form view for Hotel Management -->
+        <record id="view_hotel_management_form" model="ir.ui.view">
+            <field name="name">hotel.management.form</field>
+            <field name="model">hotel.management</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="address"/>
+                            <field name="floors"/>
+                            <field name="room_count" readonly="1"/>
+                        </group>
+                        <group>
+                            <notebook>
+                                <page string="Rooms">
+                                    <field name="room_ids">
+                                        <list>
+                                            <field name="name"/>
+                                            <field name="bed_type"/>
+                                            <field name="price"/>
+                                        </list>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

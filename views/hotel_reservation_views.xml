@@ -1,0 +1,41 @@
+<odoo>
+    <data>
+        <!-- List view for Reservation -->
+        <record id="view_hotel_reservation_list" model="ir.ui.view">
+            <field name="name">hotel.reservation.list</field>
+            <field name="model">hotel.reservation</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="customer_name"/>
+                    <field name="reservation_date"/>
+                    <field name="check_in_date"/>
+                    <field name="check_out_date"/>
+                    <field name="state"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form view for Reservation -->
+        <record id="view_hotel_reservation_form" model="ir.ui.view">
+            <field name="name">hotel.reservation.form</field>
+            <field name="model">hotel.reservation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="customer_name"/>
+                            <field name="reservation_date"/>
+                            <field name="hotel_id"/>
+                            <field name="room_id"/>
+                            <field name="check_in_date"/>
+                            <field name="check_out_date"/>
+                            <field name="state"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
