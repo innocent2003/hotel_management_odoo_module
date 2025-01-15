@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <!-- Extend the Sale Order Line Tree View -->
+        <record id="view_order_line_tree_inherit_discount" model="ir.ui.view">
+            <field name="name">sale.order.line.tree.inherit.discount</field>
+            <field name="model">sale.order.line</field>
+            <field name="inherit_id" ref="sale.view_order_line_tree"/>
+            <field name="arch" type="xml">
+                <!-- Insert x_discount field after price_unit in tree view -->
+                <xpath expr="//field[@name='price_unit']" position="after">
+                    <field name="x_discount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

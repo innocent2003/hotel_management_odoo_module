@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+        <!-- Extend the Sale Order Line Form View -->
+        <record id="view_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.line.form.discount</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <!-- Insert x_discount field after price_unit -->
+                <xpath expr="//field[@name='price_unit']" position="after">
+                    <field name="x_discount" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                </xpath>
+                    <xpath
+                expr="//field[@name='order_line']/list//field[@name='tax_id']" position="after">
+                <field name="x_discount" />
+            </xpath>
+            </field>
+        </record>
+
+        <!-- Extend the Sale Order Line Tree View -->
+<!--        <record id="view_order_line_tree_inherit_discount" model="ir.ui.view">-->
+<!--            <field name="name">sale.order.line.tree.inherit.discount</field>-->
+<!--            <field name="model">sale.order.line</field>-->
+<!--            <field name="inherit_id" ref="sale.view_order_line_tree"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                &lt;!&ndash; Insert x_discount field after price_unit &ndash;&gt;-->
+<!--                <xpath expr="//field[@name='price_unit']" position="after">-->
+<!--                    <field name="x_discount" widget="monetary" options="{'currency_field': 'currency_id'}"/>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+    </data>
+</odoo>
