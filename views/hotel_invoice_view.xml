@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+        <record id="view_hotel_invoice_form" model="ir.ui.view">
+            <field name="name">hotel.invoice.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <sheet position="inside">
+                    <group>
+                        <field name="room_id"/>
+                        <field name="check_in_date"/>
+                        <field name="check_out_date"/>
+                        <field name="total_nights"/>
+                        <field name="room_rate"/>
+                        <field name="total_amount"/>
+                    </group>
+                </sheet>
+            </field>
+        </record>
+
+
+
+
+
+
+
+
+
+         <!-- Action for Hotel Invoice -->
+        <record id="action_hotel_invoice" model="ir.actions.act_window">
+            <field name="name">Hotel Invoices</field>
+            <field name="res_model">account.move</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_hotel_invoice_form"/>
+            <field name="domain">[('move_type', '=', 'out_invoice')]</field>
+            <field name="context">{}</field>
+        </record>
+    </data>
+</odoo>

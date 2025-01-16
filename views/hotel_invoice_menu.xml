@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <menuitem id="menu_hotel_invoice_root" parent="admin_hotel.hotel_menu_root" name="Tun" sequence="10"/>
+<!--        <menuitem id="menu_hotel_invoice" name="Invoices" parent="menu_hotel_invoice_root" action="action_report_hotel_invoice" sequence="20"/>-->
+        <menuitem
+            id="menu_hotel_invoice"
+            name="Invoices"
+            parent="menu_hotel_invoice_root"
+            action="action_hotel_invoice"
+
+            sequence="20"/>
+    </data>
+</odoo>

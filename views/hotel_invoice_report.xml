@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <template id="report_hotel_invoice_document">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page">
+                        <h2>Hotel Invoice</h2>
+                        <p><strong>Room:</strong> <t t-esc="doc.room_id.name"/></p>
+                        <p><strong>Check-In:</strong> <t t-esc="doc.check_in_date"/></p>
+                        <p><strong>Check-Out:</strong> <t t-esc="doc.check_out_date"/></p>
+                        <p><strong>Total Nights:</strong> <t t-esc="doc.total_nights"/></p>
+                        <p><strong>Room Rate:</strong> <t t-esc="doc.room_rate"/></p>
+                        <p><strong>Total Amount:</strong> <t t-esc="doc.total_amount"/></p>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+        <record id="action_report_hotel_invoice" model="ir.actions.report">
+    <field name="name">Hotel Invoice</field>
+    <field name="model">account.move</field>
+    <field name="report_type">qweb-pdf</field>
+    <field name="report_name">hotel_invoice.report_hotel_invoice_document</field>
+    <field name="print_report_name">'Hotel Invoice - %s' % (object.name)</field>
+</record>
+
+    </data>
+</odoo>
