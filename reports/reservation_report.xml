@@ -1,0 +1,30 @@
+
+    <!-- Report Action -->
+
+<odoo>
+    <!-- QWeb Template for Reservation Report -->
+    <template id="report_booking">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <h2>Reservation Report</h2>
+                <t t-foreach="docs" t-as="doc">
+                    <div>
+                        <p><strong>Reservation ID:</strong> <span t-esc="doc.name"/></p>
+                        <p><strong>Customer Name:</strong> <span t-esc="doc.customer_name"/></p>
+                        <p><strong>Reservation Date:</strong> <span t-esc="doc.reservation_date"/></p>
+                        <p><strong>Hotel:</strong> <span t-esc="doc.hotel_id.name"/></p>
+                        <p><strong>Room:</strong> <span t-esc="doc.room_id.name"/></p>
+                        <p><strong>Check-in Date:</strong> <span t-esc="doc.check_in_date"/></p>
+                        <p><strong>Check-out Date:</strong> <span t-esc="doc.check_out_date"/></p>
+                        <p><strong>Status:</strong>
+                            <span t-esc="doc.state == 'new' and 'New' or doc.state == 'booked' and 'Booked' or 'Other'"/>
+                        </p>
+                    </div>
+                    <hr/>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>
+
+

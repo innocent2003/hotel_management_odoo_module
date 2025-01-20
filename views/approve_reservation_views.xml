@@ -1,6 +1,41 @@
+<!--<odoo>-->
+<!--    <data>-->
+<!--        &lt;!&ndash; List View for Reservations &ndash;&gt;-->
+<!--        <record id="view_hotel_reservation_list" model="ir.ui.view">-->
+<!--            <field name="name">hotel.reservation.list</field>-->
+<!--            <field name="model">hotel.reservation</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <list>-->
+<!--                    <field name="name"/>-->
+<!--                    <field name="customer_name"/>-->
+<!--                    <field name="reservation_date"/>-->
+<!--                    <field name="check_in_date"/>-->
+<!--                    <field name="check_out_date"/>-->
+<!--                    <field name="state"/>-->
+<!--                    &lt;!&ndash; Add the approve button in the list header &ndash;&gt;-->
+<!--                    <header>-->
+<!--                        <button name="action_approve" type="object" string="Approve Reservations" class="oe_highlight"/>-->
+<!--                    </header>-->
+<!--                </list>-->
+<!--            </field>-->
+<!--        </record>-->
+
+<!--        &lt;!&ndash; Server Action for Approving Reservations &ndash;&gt;-->
+<!--        <record id="action_server_approve_reservations" model="ir.actions.server">-->
+<!--            <field name="name">Approve Reservations</field>-->
+<!--            <field name="model_id" ref="model_hotel_reservation"/>-->
+<!--            <field name="state">code</field>-->
+<!--            <field name="code">-->
+<!--                if not records:-->
+<!--                    raise UserError('Không có đơn đặt phòng nào được chọn.')-->
+<!--                records.action_approve()-->
+<!--            </field>-->
+<!--        </record>-->
+<!--    </data>-->
+<!--</odoo>-->
 <odoo>
     <data>
-        <!-- List View for Reservations -->
+        <!-- List view for Reservation -->
         <record id="view_hotel_reservation_list" model="ir.ui.view">
             <field name="name">hotel.reservation.list</field>
             <field name="model">hotel.reservation</field>
@@ -12,23 +47,32 @@
                     <field name="check_in_date"/>
                     <field name="check_out_date"/>
                     <field name="state"/>
-                    <!-- Add the approve button in the list header -->
-                    <header>
-                        <button name="action_approve" type="object" string="Approve Reservations" class="oe_highlight"/>
-                    </header>
                 </list>
             </field>
         </record>
 
-        <!-- Server Action for Approving Reservations -->
-        <record id="action_server_approve_reservations" model="ir.actions.server">
-            <field name="name">Approve Reservations</field>
-            <field name="model_id" ref="model_hotel_reservation"/>
-            <field name="state">code</field>
-            <field name="code">
-                if not records:
-                    raise UserError('Không có đơn đặt phòng nào được chọn.')
-                records.action_approve()
+        <!-- Form view for Reservation -->
+        <record id="view_hotel_reservation_form" model="ir.ui.view">
+            <field name="name">hotel.reservation.form</field>
+            <field name="model">hotel.reservation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="customer_name"/>
+                            <field name="reservation_date"/>
+                            <field name="hotel_id"/>
+                            <field name="room_id"/>
+                            <field name="check_in_date"/>
+                            <field name="check_out_date"/>
+                            <field name="state"/>
+                        </group>
+                                            <footer>
+                        <button name="print_reservation_report" string="Print Report" type="object" class="btn-primary"/>
+                    </footer>
+                    </sheet>
+                </form>
             </field>
         </record>
     </data>

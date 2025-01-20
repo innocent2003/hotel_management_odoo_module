@@ -1,5 +1,5 @@
 # room.py
-from odoo import models, fields
+from odoo import models, fields, api
 from datetime import datetime, timedelta
 import logging
 
@@ -16,6 +16,8 @@ class Room(models.Model):
     feature_ids = fields.Many2many('hotel.room.feature', 'room_feature_rel', 'room_id', 'feature_id', string='Đặc điểm phòng')
     state = fields.Selection([('available', 'Trống'), ('booked', 'Đã đặt')], string='Trạng thái phòng', default='available')
     last_reservation_date = fields.Date('Last Reservation Date', help='The last date this room was reserved')
+    rate = fields.Monetary(string="Room Rate", required=True, help="Rate per night for the room")
+    currency_id = fields.Many2one('res.currency', string="Currency", required=True)
 
     _sql_constraints = [
         ('unique_room_code', 'unique(name, hotel_id)', 'Mã phòng phải là duy nhất trong một khách sạn!')

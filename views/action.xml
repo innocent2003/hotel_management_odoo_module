@@ -1,0 +1,7 @@
+ <record id="action_report_reservation" model="ir.actions.report">
+        <field name="name">Reservation Report</field>
+        <field name="model">hotel.reservation</field>
+        <field name="report_name">admin_hotel.report_reservation</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="print_report_name">'Reservation_Report_%s' % (object.name)</field>
+    </record>

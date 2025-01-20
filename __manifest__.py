@@ -18,7 +18,7 @@ Long description of module's purpose
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','web'],
 
     # always loaded
     'data': [
@@ -34,6 +34,8 @@ Long description of module's purpose
     'views/hotel_room_feature_views.xml',
     'views/booked_list_views.xml',
     'views/approve_reservation_views.xml',
+        'reports/reservation_report.xml',
+        # 'views/action.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
